@@ -43,7 +43,7 @@ seeders/
 
 2. **Authentication & Admin Operations Flow**:
 
-   A[Admin] --> Register {name, email, password, adminCode}  --> Login [password verification] --> Routes/Endpoint [JWT Verification] [user role(admin) Verification] ---> Full Access 
+   A[Admin] --> Register {name, email, password, adminCode}  --> Login [password verification] --> Routes/Endpoint [JWT Verification] [user role(admin) Verification] ---> Full System Access 
 
 
 
