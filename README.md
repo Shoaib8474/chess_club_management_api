@@ -1,4 +1,4 @@
-# Chess Club Membership Management System
+# Chess Club Management System
 
 A Node.js backend system for managing chess club memberships management with role-based authentication, member management, and administrative controls.
 
