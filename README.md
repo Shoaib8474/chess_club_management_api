@@ -41,7 +41,7 @@ A Node.js backend system for managing chess club memberships management with rol
 
 2. **Authentication & Admin Operations Flow**:
 
-   A[Admin] --> Register {name, email, password, adminCode}  --> Login [password verification] --> Routes/Endpoint [JWT Verification] [Admin role Verification] ---> Full Access 
+   A[Admin] --> Register {name, email, password, adminCode}  --> Login [password verification] --> Routes/Endpoint [JWT Verification] [user role(admin) Verification] ---> Full Access 
 
 
 
