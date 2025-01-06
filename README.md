@@ -50,10 +50,10 @@ A Node.js backend system for managing chess club Members, Teams, Memberships, Ra
 
 ### Authentication
 ```
-POST /api/auth/register         - Register new member
-POST /api/auth/register-admin   - Register admin (adminCode required for registration)
-POST /api/auth/login            - User login
-POST /api/auth/logout           - User logout
+POST /api/auth/register-member    - Register new member   // { "name": "Jimmy Rogs", "email": "jimmy@chessclub.com", "password": "Password123#" }
+POST /api/auth/register-admin     - Register admin    // { "name": "Admin John", "email": "first.admin@chessclub.com", "password": "Password123#", "adminCode": "2020" }
+POST /api/auth/login              - member/admin login
+POST /api/auth/logout             - User logout
 ```
 
 ### Member Operations
@@ -66,11 +66,33 @@ DELETE /api/member/delete            - Delete member
 
 ### Admin Operations
 ```
-POST   /api/admin/member/fill-related-details   - Fill all members related data into other tables by authorized admin only
 GET    /api/admin                               - List all admin role users
 GET    /api/admin/members                       - List all members
 GET    /api/admin/member/:id                    - specific member details
 GET    /api/admin/memberships                   - View all memberships
-GET    /api/admin/member/:status                - View all members paid/pending status
-GET    /api/admin/member/team/:name             - View all members with team rank 
+GET    /api/admin/member/:status                - View all members e.g: paid/pending status
+GET    /api/admin/member/team/:name             - View all members with team rank e.g: Knights & Bishops
+
+
+POST   /api/admin/member/fill-related-details   - Fill all members related data into other tables by authorized admin only
+
+ req.body to fill registered members related data by the authorized admin only
+     {
+           "userData": {
+             "email": "newemail@example.com"
+           },
+           "membershipData": {
+             "startDate": "2025-02-25",
+             "endDate": "2025-04-30",
+             "status": "Paid"
+           },
+           "paymentData": {
+             "amount": 100,
+             "paymentDate": "2025-02-25"
+           },
+           "teamName": "Knights",
+           "rankData": {
+             "score": 0
+           }
+         }
 ```
