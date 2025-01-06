@@ -10,18 +10,20 @@ A Node.js backend system for managing chess club Members, Teams, Memberships, Ra
 - Protected admin registration system  (adminCode required for admin registration)
 - Secure password hashing
 
-
 ### Member Management
 - Member registration and profile management
 - Secure profile updates (name & password fields)
 - Membership status and related Team tracking
-
 
 ### Admin Features
 - Protected admin registration using secure adminCode during signup
 - Registered Members related data filling capabilities
 - Members related tables' data management
 
+
+## Seed the database:
+seeders/
+  - node databaseSeeder.js
 
 ##  Technology Stack
 - **Framework**: Express.js
