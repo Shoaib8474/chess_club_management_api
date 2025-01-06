@@ -6,8 +6,8 @@ const { loginSchema } = require('../../validators/validations')
 const validate = require('../../middlewares/validate')
 const {logoutHelper} = require('../../controllers/auth/loginController')
 
-router.post('/login', validate(loginSchema),  login);
-router.post('/logout', authMiddleware, logoutHelper)  //  Token invalidated through logout for Unauthorized ADMIN access 
+router.post('/auth/login', validate(loginSchema),  login);
+router.post('/auth/logout', authMiddleware, logoutHelper)  //  Token invalidated through logout for Unauthorized ADMIN access 
 
 
 module.exports = router;

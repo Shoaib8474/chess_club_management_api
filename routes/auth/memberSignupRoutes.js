@@ -5,6 +5,6 @@ const { registerSchema, loginSchema, passwordUpdateSchema } = require('../../val
 const validate = require('../../middlewares/validate')
 
 
-router.post('/member-register', validate(registerSchema), memberRegistration);
+router.post('/auth/register-member', validate(registerSchema), memberRegistration);
 
 module.exports = router;

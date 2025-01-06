@@ -7,6 +7,6 @@ const validate = require('../../middlewares/validate')
 
 
 
-router.post('/admin-register', validate(adminRegisterSchema),  adminRegistration);
+router.post('/auth/register-admin', validate(adminRegisterSchema),  adminRegistration);
 
 module.exports = router
