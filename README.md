@@ -32,7 +32,7 @@ A Node.js backend system for managing chess club memberships management with rol
 - **Validation**: Joi for input validation
 
 
-## 🔄 Application Workflow
+##  Application Workflow
 
 1. **Authentication & Member Operations Flow**:
 
