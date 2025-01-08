@@ -5,6 +5,8 @@ const isAdmin = require('../../middlewares/roleMiddleware');
 const getProtectedMemberDetails = require('../../controllers/admin/getMemberController')
 const createNewUserWithDetails = require('../../controllers/admin/createMemberController')
 const getMembershipDetails = require('../../controllers/admin/adminController')
+const { Sequelize } = require('sequelize');
+const { sequelize } = require('../../models/index')
 
 
 // Chain middlewares - authMiddleware first, then isAdmin
@@ -16,6 +18,7 @@ router.get('/admin/member/membership', authMiddleware, getMembershipDetails.getM
 router.get('/admin/member/team/:name', authMiddleware, getMembershipDetails.getTeamWithTeammates);   // req.params.name = Knights, Bishops, 
 router.get('/admin/member/:status', authMiddleware, getProtectedMemberDetails.getUsersWithStatusActive);  // req.params.status = Pending
 router.get('/admin/member/team-rank/:rank', authMiddleware, getMembershipDetails.getTeamWithAboveRank);   // req.params.rank = 500 - 2500
+
 
 
 module.exports = router;

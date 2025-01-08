@@ -25,7 +25,7 @@ app.use('/api', adminRegistration);
 app.use('/api', login);
 app.use('/api', createNewUserWithDetails);
 app.use('/api', protectedMemberDetails);
-
+console.log(protectedMemberDetails.fetchUsers("Paid"))
 
 // Centralized error handling Middleware
 app.use(errorHandler);
