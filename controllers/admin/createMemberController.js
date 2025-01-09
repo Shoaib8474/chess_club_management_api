@@ -1,41 +1,79 @@
 // const sequelize = require('../../config/database');
-const { sequelize, User, Membership, Payment, Team, Rank } = require('../../models'); 
+const {
+    sequelize,
+    User,
+    Membership,
+    Payment,
+    Team,
+    Rank
+} = require('../../models');
 
 
 const createNewUserWithDetails = async (req, res) => {
     const transaction = await sequelize.transaction();
     try {
-        const { userData, membershipData, paymentData, teamName, rankData } = req.body
+        const {
+            userData,
+            membershipData,
+            paymentData,
+            teamName,
+            rankData
+        } = req.body
         // console.log("Score:", rankData.score)
-        
+
         // Check if user already exists
-        const user = await User.findOne({where: {email: userData.email}, transaction });
+        const user = await User.findOne({
+            where: {
+                email: userData.email
+            },
+            transaction
+        });
 
         // Create Membership
-        await user.createMembership(membershipData, { transaction });
+        await user.createMembership(membershipData, {
+            transaction
+        });
 
         // Create Payment
-        await user.createPayment(paymentData, { transaction });
+        await user.createPayment(paymentData, {
+            transaction
+        });
 
         // Find or Create Team
-        const [team] = await Team.findOrCreate({ 
-            where: { name: teamName },       
-            transaction 
+        const [team] = await Team.findOrCreate({
+            where: {
+                name: teamName
+            },
+            transaction
         });
 
         // Associate User with Team
-        await user.addTeam(team, { transaction });
+        await user.addTeam(team, {
+            transaction
+        });
 
         // Create Rank if not exist
-        const rank = Rank.findOne({where: {teamId: team.id}})
-        if(!rank){
-            await Rank.create({ ...rankData, teamId: team.id }, { transaction });
+        const rank = Rank.findOne({
+            where: {
+                teamId: team.id
+            }
+        })
+        if (!rank) {
+            await Rank.create({
+                ...rankData,
+                teamId: team.id
+            }, {
+                transaction
+            });
         }
 
         // Commit Transaction
         await transaction.commit();
         console.log('User and related data created successfully!');
-        res.json({success: true, message: 'User and related data created successfully!'})
+        res.json({
+            success: true,
+            message: 'User and related data created successfully!'
+        })
     } catch (error) {
         await transaction.rollback();
         console.error('Error creating user and related data:', error);

@@ -5,7 +5,7 @@ const isAdmin = require('../../middlewares/roleMiddleware');
 const getProtectedMemberDetails = require('../../controllers/admin/getMemberController')
 const createNewUserWithDetails = require('../../controllers/admin/createMemberController')
 const getMembershipDetails = require('../../controllers/admin/adminController')
-const { Sequelize } = require('sequelize');
+// const { Sequelize } = require('sequelize');
 const { sequelize } = require('../../models/index')
 
 

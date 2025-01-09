@@ -40,27 +40,27 @@ const getProtectedMemberDetails = {
                 //  raw: true,
             });
 
-        //     const sql = `
-        //     SELECT users.*, 
-        //         memberships.startDate, memberships.endDate, memberships.status,
-        //         payments.amount, payments.paymentDate,
-        //         teams.name as team_name,
-        //         ranks.score
-        //    FROM users
-        //  LEFT JOIN memberships ON users.id = memberships.userId
-        //  LEFT JOIN payments ON users.id = payments.userId
-        //  LEFT JOIN userteams ON users.id = userteams.userId
-        //  LEFT JOIN teams ON userteams.teamId = teams.id
-        //  LEFT JOIN ranks ON teams.id = ranks.teamId
-        //  WHERE users.id = :userId`;
-            
-        //     const options = {
-        //         replacements: { userId },
-        //         type: sequelize.QueryTypes.SELECT
-        //     };
-            
-        //     const userData = await sequelize.query(sql, options);
-        //     console.log(userData); 
+            //     const sql = `
+            //     SELECT users.*, 
+            //         memberships.startDate, memberships.endDate, memberships.status,
+            //         payments.amount, payments.paymentDate,
+            //         teams.name as team_name,
+            //         ranks.score
+            //    FROM users
+            //  LEFT JOIN memberships ON users.id = memberships.userId
+            //  LEFT JOIN payments ON users.id = payments.userId
+            //  LEFT JOIN userteams ON users.id = userteams.userId
+            //  LEFT JOIN teams ON userteams.teamId = teams.id
+            //  LEFT JOIN ranks ON teams.id = ranks.teamId
+            //  WHERE users.id = :userId`;
+
+            //     const options = {
+            //         replacements: { userId },
+            //         type: sequelize.QueryTypes.SELECT
+            //     };
+
+            //     const userData = await sequelize.query(sql, options);
+            //     console.log(userData); 
 
             if (!userData) {
                 console.log("Not found");
@@ -139,18 +139,18 @@ const getProtectedMemberDetails = {
                 //  raw: true,
                 //  required: false,     
             });
-    
-    //  const sql = `SELECT users.name, users.email 
-    //  FROM users
-    //  INNER JOIN memberships ON users.id = memberships.userId
-    //  WHERE memberships.status LIKE :status`;
-     
-    //  const options = {
-    //    replacements: { status: `%${status}%` },
-    //    type: sequelize.QueryTypes.SELECT
-    //  };
-    //  const userData = await sequelize.query(sql, options);
-    //  console.log(userData); 
+
+            //  const sql = `SELECT users.name, users.email 
+            //  FROM users
+            //  INNER JOIN memberships ON users.id = memberships.userId
+            //  WHERE memberships.status LIKE :status`;
+
+            //  const options = {
+            //    replacements: { status: `%${status}%` },
+            //    type: sequelize.QueryTypes.SELECT
+            //  };
+            //  const userData = await sequelize.query(sql, options);
+            //  console.log(userData); 
 
             if (!userData) {
                 return res.status(404).json({

@@ -21,14 +21,14 @@ const getMembershipDetails = {
                 },
             });
 
-//    Raw SQL queries
+            //    Raw SQL queries
             // const sql = `SELECT * FROM Users WHERE role = 'admin'`
             // const options = {
             //     type: sequelize.QueryTypes.SELECT
             // };
             // const admin = await sequelize.query(sql, options);
-            // console.log(admin); 
-            
+            // console.log(admin);
+
             // if (!admin) {
             //     return res.status(404).json({
             //         message: "admin not found",
@@ -54,18 +54,17 @@ const getMembershipDetails = {
                 }, ],
             });
 
-
-    // Raw SQL queries
+            // Raw SQL queries
             // const sql = `
-            // SELECT memberships.*, users.email 
+            // SELECT memberships.*, users.email
             // FROM memberships
             // LEFT JOIN users ON memberships.userId = users.id`;
-            
+
             // const options = {
             //     type: sequelize.QueryTypes.SELECT
             // };
             // const userData = await sequelize.query(sql, options);
-            // console.log(userData); 
+            // console.log(userData);
 
             res.json(memberships);
         } catch (error) {
@@ -105,10 +104,9 @@ const getMembershipDetails = {
                 required: true,
             });
 
-
-    // Raw SQL queries
+            // Raw SQL queries
             // const sql = `
-            // SELECT 
+            // SELECT
             //     m.id, m.startDate, m.endDate, m.status,
             //     u.id as user_id, u.name, u.email,
             //     t.name as team_name
@@ -117,14 +115,14 @@ const getMembershipDetails = {
             // LEFT JOIN userteams ut ON u.id = ut.userId
             // LEFT JOIN teams t ON ut.teamId = t.id
             // WHERE m.status LIKE :status`;
-            
+
             // const options = {
             //     replacements: { status: `%${status}%` },
             //     type: sequelize.QueryTypes.SELECT
             // };
-            
+
             // const MembershipData = await sequelize.query(sql, options);
-            // console.log(MembershipData); 
+            // console.log(MembershipData);
 
             if (!MembershipData) {
                 console.log("Not found");
@@ -170,10 +168,10 @@ const getMembershipDetails = {
                 //  required: false,
             });
 
-    // Raw SQL queries
+            // Raw SQL queries
             // const sql = `
-            // SELECT 
-            //     teams.*, 
+            // SELECT
+            //     teams.*,
             //     users.*,
             //     ranks.score
             // FROM teams
@@ -181,12 +179,12 @@ const getMembershipDetails = {
             // INNER JOIN users ON userteams.userId = users.id
             // LEFT JOIN ranks ON teams.id = ranks.teamId
             // WHERE teams.name = :name`;
-            
+
             // const options = {
             //     replacements: { name },
             //     type: sequelize.QueryTypes.SELECT
             // };
-            
+
             // const teamData = await sequelize.query(sql, options);
 
             if (!name) {
@@ -234,9 +232,9 @@ const getMembershipDetails = {
                 //  required: false,
             });
 
-    // Raw SQL queries
+            // Raw SQL queries
             // const sql = `
-            // SELECT 
+            // SELECT
             //     teams.*,
             //     ranks.score,
             //     users.*
@@ -245,12 +243,12 @@ const getMembershipDetails = {
             // INNER JOIN userteams ON teams.id = userteams.teamId
             // INNER JOIN users ON userteams.userId = users.id
             // WHERE ranks.score > :rank`;
-            
+
             // const options = {
             //     replacements: { rank },
             //     type: sequelize.QueryTypes.SELECT
             // };
-            
+
             // const teamData = await sequelize.query(sql, options);
 
             if (!teamData) {
