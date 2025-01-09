@@ -142,8 +142,10 @@ const deleteMember = async (req, res) => {
         message: "Current password is incorrect",
       });
     }
+    
+    await user.destroy();
+
     //Raw Sql queries
-    // await user.destroy();
     // const sql = `DELETE FROM users WHERE id = :id`;
 
     // const options = {
